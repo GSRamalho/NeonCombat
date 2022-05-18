@@ -1,4 +1,3 @@
-
 #include "WindowManager.h"
 int main()
 {
