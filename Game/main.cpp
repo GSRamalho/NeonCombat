@@ -1,6 +1,6 @@
-#include "WindowManager.h"
+#include "Game.h"
 int main()
 {
-    WindowManager wm;
+    Game game;
     return 0;
 }

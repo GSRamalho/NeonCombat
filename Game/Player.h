@@ -1,10 +1,12 @@
 #pragma once
-#include "Entity.h"
-class Player:public Entity
+#include "Character.h"
+class Player :public Character
 {
 private:
+    bool isJumping = false;
 public:
-	Player();
-	~Player();
-	void move();
+    Player();
+    ~Player();
+    void move();
+    void jump();
 };
