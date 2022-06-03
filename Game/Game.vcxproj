@@ -154,6 +154,8 @@
     <ClCompile Include="Level_A.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Game.cpp" />
   </ItemGroup>
@@ -167,7 +169,9 @@
     <ClInclude Include="Level_A.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Options.h" />
+    <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Game.h" />
   </ItemGroup>

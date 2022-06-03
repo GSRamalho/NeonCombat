@@ -1,9 +1,9 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1098,5): warning MSB8027: Dois ou mais arquivos com o nome Entity.cpp produzirão saídas para o mesmo local. Isso pode levar a um resultado de compilação incorreto. Os arquivos envolvidos são ..\..\..\..\..\..\..\Downloads\Game1\Game\Entity.cpp, Entity.cpp.
-  Player.cpp
+  Level.cpp
 x64\Release\Entity.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
   Gerando código
-  4 of 182 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
+  4 of 172 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finalizada a geração de código
   Game.vcxproj -> C:\Users\guilh\Desktop\ut\disciplinas\tec_prog\Game\Game\x64\Release\Game.exe

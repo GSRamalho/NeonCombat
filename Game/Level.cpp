@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "Platform.h"
 
 Level::Level()
 {
@@ -6,9 +7,7 @@ Level::Level()
 
 Level::Level(Player* player1, sf::RenderWindow* window)
 {
-    Collisions_Manager coll;
-    coll.setWindow(window);
-    colliders.push_back(coll);
+
 	this->window = window;
 	this->player1 = player1;
 	entityList = new EntityList();
@@ -28,7 +27,12 @@ void Level::display_level(Player* player, sf::RenderWindow* window)
     {
         exit(1);
     }
+    sf::Texture texture;
     sf::Text text;
+
+    
+    platform.setWindow(window);
+
 
     // Logic
     player->move();
@@ -38,12 +42,11 @@ void Level::display_level(Player* player, sf::RenderWindow* window)
 
     // Show player
     player->draw();
-
+    
     // Show colliders
-    for (Collisions_Manager collider : colliders)
-    {
-        collider.draw();
-    }
+    platform.draw();
+    platform.setBodyPosition(100, 0);
+    platform.draw();
 
     // Show player's life
     text.setFont(font);
@@ -51,11 +54,33 @@ void Level::display_level(Player* player, sf::RenderWindow* window)
     text.setCharacterSize(24);
     text.setFillColor(sf::Color::White);
     window->draw(text);
-
+    //create_platforms();
+    //cm.getObstacle(0).draw();
+  
+        
+    
 }
 
 void Level::initializeElements()
 {
 	entityList->LEs.push(player1);
 	//entityList->LEs.push(enemy1);
+}
+
+void Level::create_platforms()
+{
+    Platform platform;
+    platform.setWindow(window);
+    cm.setLO(&platform);
+    platform.setBodyPosition(0.f, 200.f);
+ /*
+    for (int i = 1; i < (window->getSize().x / platform.getBodySize()); i++)
+    {
+        Platform platform;
+        platform.setWindow(window);
+        cm.setLO(&platform);
+        platform.setBodyPosition((i * platform.getBodySize()).f, 200.f);
+        //window->getSize().y - (platform.getBodySize())
+    }
+    */
 }

@@ -1,6 +1,6 @@
 #include "Game.h"
 Game::Game() :
-    window(sf::VideoMode(1080, 720), "Swamp Bros")
+    window(sf::VideoMode(1100, 720), "Swamp Bros")
 {
     option = Options::MENU;
     player.setWindow(&window);
@@ -12,9 +12,7 @@ Game::~Game()
 }
 void Game::execute()
 {
-
-
-    Level level;
+    
     while (window.isOpen())
     {
         sf::Event event;
@@ -26,13 +24,14 @@ void Game::execute()
         window.clear();
         if (option == Options::MENU)
         {
+            //Colocar endereço na construtora
             menu.select_options(&option, &window);
         }
         else if (option == Options::LEVEL)
         {
+            //Colocar endereço na construtora
             level.display_level(&player, &window);
         }
-
         window.display();
     }
 }

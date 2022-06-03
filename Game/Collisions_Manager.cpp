@@ -9,3 +9,8 @@ Collisions_Manager::Collisions_Manager()
 Collisions_Manager::~Collisions_Manager()
 {
 }
+
+void Collisions_Manager::setLO(Obstacle *obstacle)
+{
+    LO.push(obstacle);
+}

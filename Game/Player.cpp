@@ -17,7 +17,6 @@ void Player::move()
     sf::Vector2f playerPosition = body.getPosition();
     sf::Vector2f playerSize = body.getSize();
 
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && playerPosition.x < (size.x - playerSize.x)) {
         body.move(sf::Vector2f(1.0f * speed, 0.f));
     }
@@ -28,7 +27,7 @@ void Player::move()
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && playerPosition.y > 0) {
 
-        body.move(sf::Vector2f(0.0f, -20.0f * speed));
+        body.move(sf::Vector2f(0.0f, -14.0f * speed));
     }
 
     if (playerPosition.y < (size.y - playerSize.y)) {
@@ -36,4 +35,3 @@ void Player::move()
         isJumping = true;
     }
 }
-

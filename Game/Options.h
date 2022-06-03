@@ -3,5 +3,4 @@ enum class Options
 {
     MENU,
     LEVEL
-
 };
