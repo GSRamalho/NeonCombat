@@ -24,6 +24,5 @@ private:
 	Player* player1;
 	sf::RenderWindow* window;
 	void initializeElements();
-	void create_platforms();
 };
 

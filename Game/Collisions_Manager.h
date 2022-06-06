@@ -1,15 +1,20 @@
 #pragma once
 #include "Entity.h"
 #include "Obstacle.h"
+#include "Platform.h"
 #include "EntityList.h"
+#include "Player.h"
+
 class Collisions_Manager :public Entity
 {
 private:
-    List<Obstacle> LO;
+    List<Platform> LO;
+    Platform* platform;
 public:
     Collisions_Manager();
+    Collisions_Manager(Platform* platform);
     ~Collisions_Manager();
-    void setLO(Obstacle *obstacle);
-    Obstacle getObstacle(int position) { return *LO.getItem(position); }
-
+    void setLO(Platform* obstacle);
+    Platform getObstacle(int position) { return *LO.getItem(position); }
+    void verify_collisions();
 };

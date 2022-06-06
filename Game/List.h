@@ -5,7 +5,7 @@ template<class TL> class List
 private:
 	Element<TL>* head;
 	Element<TL>* tail;
-	int length;
+	int length =0;
 
 public:
 	List();

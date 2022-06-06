@@ -1,6 +1,8 @@
 #include "Player.h"
 #include <SFML/Window/Event.hpp>
+#include <iostream>
 
+using namespace std;
 Player::Player()
 {
     life_num = 3;
@@ -18,20 +20,35 @@ void Player::move()
     sf::Vector2f playerSize = body.getSize();
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && playerPosition.x < (size.x - playerSize.x)) {
-        body.move(sf::Vector2f(1.0f * speed, 0.f));
+        body.move(sf::Vector2f(speed, 0.f));
+        direction = 1;
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && playerPosition.x > 0) {
-        body.move(sf::Vector2f(-1.0f * speed, 0.f));
+        body.move(sf::Vector2f(-speed, 0.f));
+        direction = 0;
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && playerPosition.y > 0) {
-
-        body.move(sf::Vector2f(0.0f, -14.0f * speed));
+        if (!isJumping)
+            body.move(sf::Vector2f(0, jump_speed));
     }
 
     if (playerPosition.y < (size.y - playerSize.y)) {
-        body.move(sf::Vector2f(0.0f, fall_speed * speed));
-        isJumping = true;
+        body.move(sf::Vector2f(0.0f, fall_speed));
+        if(playerPosition.y <= maxJumpHeight)
+            isJumping = true;
+        cout << "DEBUG: Jumping" << endl;
     }
+    else
+    {
+        cout << "DEBUG: Floor" << endl;
+        isJumping = false;
+        maxJumpHeight = playerPosition.y - (playerSize.y*3);
+    }
+
+
+
+    posX = playerPosition.x;
+    posY = playerPosition.y;
 }

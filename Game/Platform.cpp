@@ -3,7 +3,7 @@
 Platform::Platform()
 {
 
-	body.setFillColor(sf::Color::Red);
+	body.setFillColor(sf::Color::White);
 }
 
 Platform::~Platform()
