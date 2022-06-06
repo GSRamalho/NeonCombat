@@ -12,9 +12,8 @@ private:
     Platform* platform;
 public:
     Collisions_Manager();
-    Collisions_Manager(Platform* platform);
     ~Collisions_Manager();
     void setLO(Platform* obstacle);
     Platform getObstacle(int position) { return *LO.getItem(position); }
-    void verify_collisions();
+    void verify_collisions(Player *player);
 };

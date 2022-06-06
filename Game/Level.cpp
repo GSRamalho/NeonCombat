@@ -3,6 +3,7 @@
 
 Level::Level()
 {
+   cm.setLO(&platform);
 }
 
 Level::Level(Player* player1, sf::RenderWindow* window)
@@ -12,7 +13,7 @@ Level::Level(Player* player1, sf::RenderWindow* window)
 	this->player1 = player1;
 	entityList = new EntityList();
 	initializeElements();
-    
+ 
 }
 
 Level::~Level()
@@ -29,9 +30,9 @@ void Level::display_level(Player* player, sf::RenderWindow* window)
     sf::Texture texture;
     sf::Text text;
 
+
     
     platform.setWindow(window);
-
 
     // Logic
     player->move();
@@ -47,7 +48,7 @@ void Level::display_level(Player* player, sf::RenderWindow* window)
     {
         // (window->getSize().y)-platform.getBodySize()
         platform.setBodyPosition(i * 50, 200);
-        cm.verify_collisions();
+        cm.verify_collisions(player);
         platform.draw();
         
     }

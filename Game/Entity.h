@@ -25,4 +25,6 @@ public:
 	float getPosX() { return this->posX; }
 	float getPosY() { return this->posY; }
 	float getObstSize() { return this->obstSize; }
+	sf::FloatRect getBodyGlobalBounds() { return this->body.getGlobalBounds(); }
 };
+

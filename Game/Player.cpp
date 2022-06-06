@@ -38,11 +38,9 @@ void Player::move()
         body.move(sf::Vector2f(0.0f, fall_speed));
         if(playerPosition.y <= maxJumpHeight)
             isJumping = true;
-        cout << "DEBUG: Jumping" << endl;
     }
     else
     {
-        cout << "DEBUG: Floor" << endl;
         isJumping = false;
         maxJumpHeight = playerPosition.y - (playerSize.y*3);
     }
