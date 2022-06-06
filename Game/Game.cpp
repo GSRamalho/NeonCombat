@@ -3,8 +3,7 @@ Game::Game() :
     window(sf::VideoMode(1100, 720), "Swamp Bros")
 {
     option = Options::MENU;
-    player.setWindow(&window);
-    
+    player.setWindow(&window);    
     execute();
 }
 Game::~Game()
@@ -29,8 +28,8 @@ void Game::execute()
         }
         else if (option == Options::LEVEL)
         {
-            //Colocar endereço na construtora
-            level.display_level(&player, &window);
+            
+            level->display_level();
         }
         window.display();
     }

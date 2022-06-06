@@ -19,7 +19,7 @@ void Player::move()
     sf::Vector2f playerPosition = body.getPosition();
     sf::Vector2f playerSize = body.getSize();
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && playerPosition.x < (size.x - playerSize.x)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && playerPosition.x < (size.x - playerSize.x))  {
         body.move(sf::Vector2f(speed, 0.f));
         direction = 1;
     }
@@ -34,7 +34,7 @@ void Player::move()
             body.move(sf::Vector2f(0, jump_speed));
     }
 
-    if (playerPosition.y < (size.y - playerSize.y)) {
+    if (playerPosition.y < (size.y - playerSize.y) && (body.getPosition().y < cantGoY)) {
         body.move(sf::Vector2f(0.0f, fall_speed));
         if(playerPosition.y <= maxJumpHeight)
             isJumping = true;
@@ -42,7 +42,8 @@ void Player::move()
     else
     {
         isJumping = false;
-        maxJumpHeight = playerPosition.y - (playerSize.y*3);
+        cantGoY = window->getSize().y;
+        maxJumpHeight = playerPosition.y - (playerSize.y*6);
     }
 
 

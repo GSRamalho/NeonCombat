@@ -26,9 +26,8 @@ void Collisions_Manager::verify_collisions(Player*player)
         {
             if (LO.getItem(i)->getBodyGlobalBounds().intersects(player->getBodyGlobalBounds()))
             {
-                
-                player->setBodyPosition(0, LO.getItem(i)->getPosY());
-
+                player->setCantGoX(LO.getItem(i)->getPosX());
+                player->setCantGoY(LO.getItem(i)->getPosY());
             }
         }
     }

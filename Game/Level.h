@@ -15,14 +15,16 @@ public:
 	Level(Player* player1, sf::RenderWindow* window);
 	~Level();
 	EntityList* getEntityList() { return entityList; }
-	void display_level(Player* player, sf::RenderWindow* window);
-	Collisions_Manager cm;
+	void display_level();
+	void initializeElements();
+	void generate_platforms();
 private:
+	Collisions_Manager cm;
 	EntityList* entityList;
 	//Enemy* enemy1;
 	Platform platform;
 	Player* player1;
 	sf::RenderWindow* window;
-	void initializeElements();
+	
 };
 
