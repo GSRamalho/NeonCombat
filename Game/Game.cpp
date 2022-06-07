@@ -14,6 +14,7 @@ void Game::execute()
     
     while (window.isOpen())
     {
+        window.setFramerateLimit(60);
         sf::Event event;
         while (window.pollEvent(event))
         {

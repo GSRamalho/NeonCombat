@@ -4,7 +4,7 @@ class Obstacle :
     public Entity
 {
 protected:
-
+    
 public:
     Obstacle();
     ~Obstacle();

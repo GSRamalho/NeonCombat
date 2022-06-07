@@ -17,7 +17,7 @@ public:
 	EntityList* getEntityList() { return entityList; }
 	void display_level();
 	void initializeElements();
-	void generate_platforms();
+	void reposition_platform();
 private:
 	Collisions_Manager cm;
 	EntityList* entityList;

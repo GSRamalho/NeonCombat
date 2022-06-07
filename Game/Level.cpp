@@ -43,7 +43,7 @@ void Level::display_level()
     // Show player
     player1->draw();
     
-    generate_platforms();
+    reposition_platform();
 
     // Show player's life
     text.setFont(font);
@@ -59,7 +59,7 @@ void Level::initializeElements()
 	//entityList->LEs.push(enemy1);
 }
 
-void Level::generate_platforms()
+void Level::reposition_platform()
 {
     for (int i = 0; i < window->getSize().x/platform.getBodySize(); i++)
     {
@@ -67,9 +67,21 @@ void Level::generate_platforms()
         cm.verify_collisions(player1);
         platform.draw();
     }
-    for (int i = 0; i < (window->getSize().x / platform.getBodySize())/2; i++)
+    for (int i = 0; i < (window->getSize().x / platform.getBodySize())/3; i++)
     {
-        platform.setBodyPosition(i * platform.getBodySize(), 550);
+        platform.setBodyPosition(i * platform.getBodySize(), 450);
+        cm.verify_collisions(player1);
+        platform.draw();
+    }
+    for (int i = (window->getSize().x / platform.getBodySize()) / 2.8; i < window->getSize().x; i++)
+    {
+        platform.setBodyPosition(i * platform.getBodySize(), 250);
+        cm.verify_collisions(player1);
+        platform.draw();
+    }
+    for (int i = (window->getSize().y / platform.getBodySize()) / 1.5; i < window->getSize().y; i++)
+    {
+        platform.setBodyPosition(650, i * platform.getBodySize());
         cm.verify_collisions(player1);
         platform.draw();
     }

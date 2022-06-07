@@ -24,10 +24,10 @@ void Collisions_Manager::verify_collisions(Player*player)
     {
         for (int i = 0; i < LO.getLength(); i++)
         {
-            if (LO.getItem(i)->getBodyGlobalBounds().intersects(player->getBodyGlobalBounds()))
+            if (LO.getItem(i)->getBody().getGlobalBounds().intersects(player->getBody().getGlobalBounds()))
             {
-                player->setCantGoX(LO.getItem(i)->getPosX());
-                player->setCantGoY(LO.getItem(i)->getPosY());
+                player->setCollidedX(LO.getItem(i)->getBody().getPosition().x);
+                player->setCollidedY(LO.getItem(i)->getBody().getPosition().y);
             }
         }
     }

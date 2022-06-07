@@ -39,9 +39,6 @@
     <ClCompile Include="Level_A.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Downloads\Game1\Game\Entity.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="EntityList.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>

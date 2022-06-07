@@ -16,7 +16,6 @@ private:
     sf::RenderWindow window;
     Player player;
     Level * level = new Level(&player, &window);
-    
 public:
     Game();
     ~Game();
