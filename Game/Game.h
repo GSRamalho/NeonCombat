@@ -15,7 +15,7 @@ private:
     Menu menu;
     sf::RenderWindow window;
     Player player;
-    Level * level = new Level(&player, &window);
+    Level* level = new Level(&player, &window);
 public:
     Game();
     ~Game();

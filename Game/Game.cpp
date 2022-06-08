@@ -3,7 +3,7 @@ Game::Game() :
     window(sf::VideoMode(1100, 720), "Swamp Bros")
 {
     option = Options::MENU;
-    player.setWindow(&window);    
+    player.setWindow(&window);
     execute();
 }
 Game::~Game()
@@ -14,7 +14,7 @@ void Game::execute()
     
     while (window.isOpen())
     {
-        window.setFramerateLimit(60);
+        //window.setFramerateLimit(60);
         sf::Event event;
         while (window.pollEvent(event))
         {

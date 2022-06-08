@@ -2,7 +2,7 @@
 #include <vector>
 #include "Collisions_Manager.h"
 #include "Player.h"
-//#include "Enemy.h"
+#include "Enemy.h"
 #include "EntityList.h"
 #include <SFML/Graphics.hpp>
 #include "Platform.h"
@@ -21,7 +21,7 @@ public:
 private:
 	Collisions_Manager cm;
 	EntityList* entityList;
-	//Enemy* enemy1;
+	//List<Enemy> ListEnemies;
 	Platform platform;
 	Player* player1;
 	sf::RenderWindow* window;

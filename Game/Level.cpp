@@ -1,9 +1,9 @@
 #include "Level.h"
 #include "Platform.h"
+#include "Entity.h"
 
 Level::Level()
 {
-   
 }
 
 Level::Level(Player* player1, sf::RenderWindow* window)
@@ -11,9 +11,9 @@ Level::Level(Player* player1, sf::RenderWindow* window)
     cm.setLO(&platform);
 	this->window = window;
 	this->player1 = player1;
+
 	entityList = new EntityList();
 	initializeElements();
- 
 }
 
 Level::~Level()
@@ -30,8 +30,6 @@ void Level::display_level()
     sf::Texture texture;
     sf::Text text;
 
-
-    
     platform.setWindow(window);
 
     // Logic
@@ -43,11 +41,15 @@ void Level::display_level()
     // Show player
     player1->draw();
     
+    // Show enemies
+    entityList->drawEntities(window);
+    entityList->moveEntities();
+
     reposition_platform();
 
     // Show player's life
     text.setFont(font);
-    text.setString("Life: " + std::to_string(player1->getLife()));
+    text.setString("Life: " + std::to_string(player1->getLife())+" Enemies: " + std::to_string(entityList->LEs.getLength()));
     text.setCharacterSize(24);
     text.setFillColor(sf::Color::White);
     window->draw(text);
@@ -55,8 +57,13 @@ void Level::display_level()
 
 void Level::initializeElements()
 {
-	entityList->LEs.push(player1);
-	//entityList->LEs.push(enemy1);
+    Enemy* enemy1 = new Enemy(300.f, 400.f, window);
+    Enemy* enemy2 = new Enemy(800.f, 200.f, window);
+    Enemy* enemy3 = new Enemy(160.f, 620.f, window);
+    entityList->LEs.push(enemy1);
+    entityList->LEs.push(enemy2);
+    entityList->LEs.push(enemy3);
+    //entityList->LEs.push(new Enemy(300.f, 500.f, window));
 }
 
 void Level::reposition_platform()
