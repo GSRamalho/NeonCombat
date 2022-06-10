@@ -1,3 +1,7 @@
+/*
+Adicionar referencias utilizadas
+*/
+
 #include "Game.h"
 int main()
 {

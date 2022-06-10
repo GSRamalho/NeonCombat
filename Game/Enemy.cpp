@@ -32,14 +32,7 @@ void Enemy::move()
     if (direction==0 && enemyPosition.x > 0) {
         body.move(sf::Vector2f(-speed, 0.f));
         direction = 0;
-    }
-
-    /*
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && enemyPosition.y > 0) {
-        if (!isJumping)
-            body.move(sf::Vector2f(0, jump_speed));
-    }
-    
+    }    
     
     if (enemyPosition.y < (size.y - enemySize.y) && (body.getPosition().y < collidedY - enemySize.y)) {
         body.move(sf::Vector2f(0.0f, fall_speed));
@@ -47,7 +40,7 @@ void Enemy::move()
             isJumping = true;
 
     }
-    */
+    
     else
     {
         collidedY = window->getSize().y;

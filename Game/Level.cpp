@@ -57,9 +57,9 @@ void Level::display_level()
 
 void Level::initializeElements()
 {
-    Enemy* enemy1 = new Enemy(300.f, 400.f, window);
-    Enemy* enemy2 = new Enemy(800.f, 200.f, window);
-    Enemy* enemy3 = new Enemy(160.f, 620.f, window);
+    Enemy* enemy1 = new Enemy(0.f, 0.f, window);
+    Enemy* enemy2 = new Enemy(650.f, 360.f, window);
+    Enemy* enemy3 = new Enemy(400.f, 0.f, window);
     entityList->LEs.push(enemy1);
     entityList->LEs.push(enemy2);
     entityList->LEs.push(enemy3);
@@ -72,24 +72,36 @@ void Level::reposition_platform()
     {
         platform.setBodyPosition(i * platform.getBodySize(), (window->getSize().y-platform.getBodySize()));
         cm.verify_collisions(player1);
+        cm.verify_collisions(entityList->LEs.getItem(0));
+        cm.verify_collisions(entityList->LEs.getItem(1));
+        cm.verify_collisions(entityList->LEs.getItem(2));
         platform.draw();
     }
     for (int i = 0; i < (window->getSize().x / platform.getBodySize())/3; i++)
     {
         platform.setBodyPosition(i * platform.getBodySize(), 450);
         cm.verify_collisions(player1);
+        cm.verify_collisions(entityList->LEs.getItem(0));
+        cm.verify_collisions(entityList->LEs.getItem(1));
+        cm.verify_collisions(entityList->LEs.getItem(2));
         platform.draw();
     }
     for (int i = (window->getSize().x / platform.getBodySize()) / 2.8; i < window->getSize().x; i++)
     {
         platform.setBodyPosition(i * platform.getBodySize(), 250);
         cm.verify_collisions(player1);
+        cm.verify_collisions(entityList->LEs.getItem(0));
+        cm.verify_collisions(entityList->LEs.getItem(1));
+        cm.verify_collisions(entityList->LEs.getItem(2));
         platform.draw();
     }
     for (int i = (window->getSize().y / platform.getBodySize()) / 1.5; i < window->getSize().y; i++)
     {
         platform.setBodyPosition(650, i * platform.getBodySize());
         cm.verify_collisions(player1);
+        cm.verify_collisions(entityList->LEs.getItem(0));
+        cm.verify_collisions(entityList->LEs.getItem(1));
+        cm.verify_collisions(entityList->LEs.getItem(2));
         platform.draw();
     }
 
