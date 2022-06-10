@@ -3,6 +3,7 @@
 #include "Collisions_Manager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Enemy_A.h"
 #include "EntityList.h"
 #include <SFML/Graphics.hpp>
 #include "Platform.h"

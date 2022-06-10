@@ -47,7 +47,7 @@ void Player::move()
     }
     else
     {
-        collidedY = window->getSize().y;
+        collidedY = (float) window->getSize().y;
         isJumping = false;
         maxJumpHeight = playerPosition.y - (playerSize.y*6);
     }

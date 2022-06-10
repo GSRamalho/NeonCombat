@@ -1,6 +1,8 @@
 #include "Level.h"
 #include "Platform.h"
 #include "Entity.h"
+#include "Enemy_A.h"
+#include "Enemy_B.h"
 
 Level::Level()
 {
@@ -57,51 +59,55 @@ void Level::display_level()
 
 void Level::initializeElements()
 {
-    Enemy* enemy1 = new Enemy(0.f, 0.f, window);
-    Enemy* enemy2 = new Enemy(650.f, 360.f, window);
-    Enemy* enemy3 = new Enemy(400.f, 0.f, window);
+    
+    Enemy_B* enemy1 = new Enemy_B(0.f, 0.f, window);
+    Enemy_B* enemy2 = new Enemy_B(650.f, 360.f, window);
+    Enemy_B* enemy3 = new Enemy_B(400.f, 0.f, window);
+    Enemy_A* enemy4 = new Enemy_A(10.f, 20.f, window);
+
     entityList->LEs.push(enemy1);
     entityList->LEs.push(enemy2);
     entityList->LEs.push(enemy3);
-    //entityList->LEs.push(new Enemy(300.f, 500.f, window));
+    entityList->LEs.push(enemy4);
+    
 }
 
 void Level::reposition_platform()
 {
-    for (int i = 0; i < window->getSize().x/platform.getBodySize(); i++)
+    for (int i = 0; i < window->getSize().x / platform.getBodySize(); i++)
     {
-        platform.setBodyPosition(i * platform.getBodySize(), (window->getSize().y-platform.getBodySize()));
+        platform.setBodyPosition(i * platform.getBodySize(), (window->getSize().y - platform.getBodySize()));
         cm.verify_collisions(player1);
-        cm.verify_collisions(entityList->LEs.getItem(0));
-        cm.verify_collisions(entityList->LEs.getItem(1));
-        cm.verify_collisions(entityList->LEs.getItem(2));
+        for (int j = 0; j < entityList->LEs.getLength(); j++) {
+            cm.verify_collisions(entityList->LEs.getItem(j));
+        }
         platform.draw();
     }
-    for (int i = 0; i < (window->getSize().x / platform.getBodySize())/3; i++)
+    for (int i = 0; i < (window->getSize().x / platform.getBodySize()) / 3; i++)
     {
         platform.setBodyPosition(i * platform.getBodySize(), 450);
         cm.verify_collisions(player1);
-        cm.verify_collisions(entityList->LEs.getItem(0));
-        cm.verify_collisions(entityList->LEs.getItem(1));
-        cm.verify_collisions(entityList->LEs.getItem(2));
+        for (int j = 0; j < entityList->LEs.getLength(); j++) {
+            cm.verify_collisions(entityList->LEs.getItem(j));
+        }
         platform.draw();
     }
     for (int i = (window->getSize().x / platform.getBodySize()) / 2.8; i < window->getSize().x; i++)
     {
         platform.setBodyPosition(i * platform.getBodySize(), 250);
         cm.verify_collisions(player1);
-        cm.verify_collisions(entityList->LEs.getItem(0));
-        cm.verify_collisions(entityList->LEs.getItem(1));
-        cm.verify_collisions(entityList->LEs.getItem(2));
+        for (int j = 0; j < entityList->LEs.getLength(); j++) {
+            cm.verify_collisions(entityList->LEs.getItem(j));
+        }
         platform.draw();
     }
     for (int i = (window->getSize().y / platform.getBodySize()) / 1.5; i < window->getSize().y; i++)
     {
         platform.setBodyPosition(650, i * platform.getBodySize());
         cm.verify_collisions(player1);
-        cm.verify_collisions(entityList->LEs.getItem(0));
-        cm.verify_collisions(entityList->LEs.getItem(1));
-        cm.verify_collisions(entityList->LEs.getItem(2));
+        for (int j = 0; j < entityList->LEs.getLength(); j++) {
+            cm.verify_collisions(entityList->LEs.getItem(j));
+        }
         platform.draw();
     }
 

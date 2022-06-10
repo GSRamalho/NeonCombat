@@ -15,6 +15,8 @@ public:
     Character();
     ~Character();
     int getLife();
+    void setSpeed(float s);
+    void setFlyingSpeed(float s);
     void setCollidedY(float value) { this->collidedY = value; }
     void setCollidedX(float value) { this->collidedX = value; }
 };
